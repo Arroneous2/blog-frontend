@@ -3,11 +3,11 @@ export function PostsIndex(props) {
     <div id="posts-index">
       <h1>All posts</h1>
       <p>The name is</p>
-      {props.posts.map((item) => (
-        <div key={item.id} className="posts-index ">
-          <h2>{item.title}</h2>
-          <p>{item.body}</p>
-          <img src={item.image} alt="" />
+      {props.posts.map((post) => (
+        <div key={post.id} className="posts-index ">
+          <h2>{post.title}</h2>
+          <p>{post.body}</p>
+          <img src={post.image} alt="" />
           <button>More info</button>
         </div>
       ))}
