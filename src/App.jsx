@@ -25,35 +25,51 @@ function PostNew() {
   );
 }
 
-function PostsIndex() {
+function PostsIndex(props) {
+  console.log("The props are", props);
   return (
     <div id="posts-index">
       <h1>All posts</h1>
-      <h2>Bread!</h2>
-      <p>Some post about bread</p>
-      <img src="https://thumbs.dreamstime.com/b/bread-cut-14027607.jpg" alt="some bread" />
-      <h2>Milk!</h2>
-      <p>drink milk please</p>
-      <img
-        src="https://t3.ftcdn.net/jpg/02/23/71/38/360_F_223713833_IVzWUhbC2t3WdN83GoNCPDjHmefthXoq.jpg"
-        alt="some bread"
-      />
-      <h2>Eggs!</h2>
-      <p>for the love of god eat eggs</p>
-      <img
-        src="https://media.istockphoto.com/id/1028690210/photo/set-of-egg-isolated.jpg?s=612x612&w=0&k=20&c=Twc1V5iG4XmGT-_6JQ7Wqejk19D_sK6OI84sxTs8W7U="
-        alt="some bread"
-      />
+      <p>The name is</p>
+      {props.posts.map((item) => (
+        <div className="posts-index ">
+          <h2>{item.title}</h2>
+          <p>{item.body}</p>
+          <img src={item.image} alt="" />
+          <button>More info</button>
+        </div>
+      ))}
     </div>
   );
 }
 
 function Content() {
+  let posts = [
+    {
+      id: 1,
+      title: "Milk",
+      body: "does a body good",
+      image: "https://t3.ftcdn.net/jpg/02/23/71/38/360_F_223713833_IVzWUhbC2t3WdN83GoNCPDjHmefthXoq.jpg",
+    },
+    {
+      id: 2,
+      title: "bread",
+      body: "carbs 4 life",
+      image: "https://thumbs.dreamstime.com/b/bread-cut-14027607.jpg",
+    },
+    {
+      id: 3,
+      title: "eggs!",
+      body: "Now with more crunch!",
+      image:
+        "https://media.istockphoto.com/id/1028690210/photo/set-of-egg-isolated.jpg?s=612x612&w=0&k=20&c=Twc1V5iG4XmGT-_6JQ7Wqejk19D_sK6OI84sxTs8W7U=",
+    },
+  ];
   return (
-    <>
+    <div>
       <PostNew />
-      <PostsIndex />
-    </>
+      <PostsIndex posts={posts} />
+    </div>
   );
 }
 
