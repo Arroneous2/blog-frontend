@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 export function Content() {
   const [posts, setPosts] = useState([]);
+  const [isPostsShowVisible, setIsPostsShowVisible] = useState(false);
 
   const handleIndexPosts = () => {
     axios.get("http://localhost:3000/posts.json").then((response) => {
@@ -14,14 +15,22 @@ export function Content() {
     });
   };
 
+  const handleShowPosts = () => {
+    setIsPostsShowVisible(true);
+  };
+
+  const handleClose = () => {
+    setIsPostsShowVisible(false);
+  };
+
   useEffect(handleIndexPosts, []);
 
   return (
     <main>
       <PostNew />
       <button onClick={handleIndexPosts}>Get Posts</button>
-      <PostsIndex posts={posts} />
-      <Modal show={true}>
+      <PostsIndex posts={posts} on onShowProduct={handleShowPosts} />
+      <Modal show={isPostsShowVisible}>
         <p>TEST</p>
       </Modal>
     </main>
