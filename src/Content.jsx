@@ -16,10 +16,10 @@ export function Content() {
   useEffect(handleIndexPosts, []);
 
   return (
-    <div>
+    <main>
       <PostNew />
+      <button onClick={handleIndexPosts}>Get Posts</button>
       <PostsIndex posts={posts} />
-      <button onClick={handleIndexPosts}></button>
-    </div>
+    </main>
   );
 }
