@@ -30,7 +30,7 @@ export function Content() {
       <PostNew />
       <button onClick={handleIndexPosts}>Get Posts</button>
       <PostsIndex posts={posts} on onShowProduct={handleShowPosts} />
-      <Modal show={isPostsShowVisible}>
+      <Modal show={isPostsShowVisible} onClose={handleClose}>
         <p>TEST</p>
       </Modal>
     </main>
