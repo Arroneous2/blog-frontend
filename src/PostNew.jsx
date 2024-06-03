@@ -1,4 +1,13 @@
-export function PostNew() {
+import axios from "axios";
+
+export function PostNew(props) {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const params = new FormData(event.target);
+    props.onCreatePost(params);
+    event.target.reset();
+  };
+
   return (
     <div id="posts-new">
       <h1>New post</h1>
@@ -7,7 +16,7 @@ export function PostNew() {
         quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
         ultricies mi vitae est. Mauris placerat eleifend leo.
       </p>
-      <form method="POST" action="http://localhost:3000/posts.json">
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="user_id">User ID:</label>
           <input type="text" name="user_id" />
