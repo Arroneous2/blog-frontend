@@ -34,6 +34,7 @@ export function PostNew(props) {
           <input type="text" name="image" />
         </div>
         <button type="submit">create post</button>
+        <input type="reset" value="Reset" />
       </form>
     </div>
   );

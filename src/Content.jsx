@@ -44,11 +44,11 @@ export function Content() {
       <Routes>
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/postnew" element={<PostNew onCreatePost={handleCreatePost} />} />
+        <Route path="/new-post" element={<PostNew onCreatePost={handleCreatePost} />} />
+        <Route path="/all-posts" element={<PostsIndex posts={posts} onShowpost={handleShowPosts} />} />
       </Routes>
 
       <button onClick={handleIndexPosts}>Get Posts</button>
-      <PostsIndex posts={posts} onShowpost={handleShowPosts} />
       <Modal show={isPostsShowVisible} onClose={handleClose}>
         <PostShow post={currentPost} />
       </Modal>
